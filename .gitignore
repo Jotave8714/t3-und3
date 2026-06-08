@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Testes / cobertura
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Visualizacao do grafo (gerados)
+*.dot
+grafo.png
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# JetBrains (PyCharm)
+.idea/
+
+# Sistema operacional
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
+*~
+
+# Logs / temporarios
+*.log
+*.tmp
+*.bak
