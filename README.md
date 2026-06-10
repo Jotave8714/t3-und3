@@ -35,9 +35,9 @@ python3 main.py < ../dados/entradas_do_problema.txt
 A entrada é lida de `stdin` e a resposta é escrita em `stdout` (formato Kattis).
 Para outro caso, redirecione qualquer arquivo de entrada para `main.py`.
 
-> **Submissão no Kattis:** envie os quatro arquivos de `src/`
-> (`main.py`, `flow_edge.py`, `flow_network.py`, `ford_fulkerson.py`) — o Kattis
-> aceita múltiplos arquivos numa submissão e detecta `main.py` como principal.
+> **Submissão no Kattis:** envie `src/main.py` — arquivo único e autocontido
+> (as classes `FlowEdge`, `FlowNetwork` e `FordFulkerson` estão todas nele,
+> usando apenas a biblioteca padrão do Python).
 
 ## Modelagem como rede de fluxo
 
