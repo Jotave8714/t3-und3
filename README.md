@@ -91,8 +91,24 @@ melhor (testado: criança que "cede" seu brinquedo para outra ser atendida).
 
 O **valor do fluxo máximo** é diretamente o número máximo de crianças
 satisfeitas — cada unidade de fluxo `S → ... → T` corresponde a um par
-(criança, brinquedo) válido. A reconstrução do pareamento (não exigida pela
-saída) sairia das arestas `criança → brinquedo` com `flow > 0`.
+(criança, brinquedo) válido. É o que o programa imprime
+([`main.py`](src/main.py): `print(FordFulkerson(G, S, T).value())`).
+
+## Emparelhamento, reconstrução e corte mínimo
+
+- **Emparelhamento:** o problema é, no fundo, um emparelhamento bipartido máximo
+  (crianças × brinquedos) com o limite de categoria modelado pela camada
+  intermediária. O fluxo máximo unitário nessa rede **é** o tamanho do
+  emparelhamento máximo.
+- **Reconstrução do pareamento** (não exigida pela saída, mas disponível): basta
+  varrer as arestas `criança → brinquedo` com `flow > 0` — cada uma é um par
+  (criança satisfeita, brinquedo usado).
+- **Corte mínimo:** pelo teorema *max-flow min-cut*, o valor do fluxo iguala a
+  capacidade do corte mínimo. A classe expõe `in_cut(v)`
+  ([`main.py`](src/main.py)), que marca os vértices alcançáveis a partir de `S`
+  no grafo residual final (lado-origem do corte). O conjunto saturado que separa
+  esse lado de `T` explica *por que* algumas crianças ficam de fora (gargalo nas
+  arestas `categoria → T` ou nos brinquedos disputados).
 
 ## Complexidade
 
@@ -111,4 +127,6 @@ saída) sairia das arestas `criança → brinquedo` com `flow > 0`.
 
 ## Evidência de Accepted
 
-Ver `evidencias/` (adicionar `accepted.png`/`accepted.pdf` após submeter).
+Submissão **19789647** no Kattis — *Accepted*, Python 3, 30/30 casos de teste.
+
+![Accepted no Kattis](evidencias/accepted.png)
